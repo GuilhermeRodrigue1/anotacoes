@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ANOTAÇÕES - BY: Guilherme Fernandes</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script/app.js" defer></script>
 </head>
 <body>
 
@@ -15,7 +16,7 @@
         <div class="txt-nav">By: Guilherme Fernandes</div>
 
     </section>
-    
+
     <main class="main-margem">
 
         <div class="description-box">Este é um sistema de anotações web, desenvolvido com objetivo de aprendizagem e reforço na linguagem JavaScript.</div>
@@ -42,42 +43,15 @@
                 </label>
 
                 <div class="box-buttons">
-                    <button type="submit" onclick="adicionar()" class="button-add">ADICIONAR</button>
-                    <button type="submit" onclick="deletar()" class="button-delete">LIMPAR ANOTAÇÕES</button>
+                    <button type="button" onclick="adicionar()" class="button-add">ADICIONAR</button>
+                    <button type="button" onclick="deletar()" class="button-delete">LIMPAR ANOTAÇÕES</button>
                 </div>
 
             </form>
 
-            <section class="container-notes">
+            <section class="container-notes" id="container-append-notes">
 
-                <div class="note-box">
-
-                    <div class="title-note">UNDEFINED</div>
-
-                    <div class="ctd-note">Lorem ipsum dolor sit amet consectetur adipisicing elit. ExceLorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi molestias officiis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi molestias officiis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi molestias officiis.pturi molestias officiis.</div>
-
-                </div>
-                <div class="note-box">
-
-                    <div class="title-note">UNDEFINED</div>
-
-                    <div class="ctd-note">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi molestias officiis.</div>
-
-                </div>
-                <div class="note-box">
-
-                    <div class="title-note">UNDEFINED</div>
-
-                    <div class="ctd-note">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi molestias officiis.</div>
-
-                </div>
-                <div class="note-box">
-
-                    <div class="title-note">UNDEFINED</div>
-
-                    <div class="ctd-note">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi molestias officiis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi molestias officiis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi molestias officiis.</div>
-
-                </div>
+                AINDA NÃO HÁ ANOTAÇÕES...
 
             </section>
 

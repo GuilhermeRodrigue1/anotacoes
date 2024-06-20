@@ -6,6 +6,11 @@
     color: white;
 }
 
+h1 {
+    color: black;
+    font-weight: 900;
+}
+
 body {
     background-color: whitesmoke;
 }
@@ -78,13 +83,14 @@ font-weight: bold;
 }
 
 .container-notes {
-    background-color: rgba(102, 51, 153, 0);
+    background-color: rgba(110, 110, 110, 0);
     display: grid;
     grid-template-columns: 49% 49%;
     gap: 10px;
     align-items: center;
     justify-content: space-around;
     margin-top: 10px;
+    color: black;
 }
 
 .note-box {
