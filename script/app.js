@@ -4,12 +4,13 @@ const appendnotes = document.getElementById("container-append-notes")
 
 function adicionar() {
     console.log("adicionou")
-    appendnotes.appendChild(validateelements())
+    var appenddiv = validateelements()
+    appendnotes.appendChild(appenddiv)
 }
 
 function deletar() {
     console.log("deletou")
-    appendnotes.innerHTML = ""
+    appendnotes.innerHTML = "<h1>AINDA NÃO HÁ ANOTAÇÕES...</h1>"
 }
 
 function validateelements() {
@@ -37,3 +38,4 @@ function validateelements() {
     }
 
 }
+
