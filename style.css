@@ -102,21 +102,19 @@ font-weight: bold;
 }
 
 .title-note {
-    width: 100%;
     background-color: rgba(102, 51, 153, 0);
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 25px;
-    font-size: 20px;
-    font-weight: 900;
+    font-size: 18px;
+    font-weight: 700;
     margin-top: 10px;
     color: rgb(231, 231, 231);
 }
 
 .ctd-note {
     padding: 5px;
-    text-align: center;
+    text-align: justify;
     margin-top: 5px;
     font-size: 14px;
     color: rgb(196, 196, 196);

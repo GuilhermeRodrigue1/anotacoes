@@ -15,9 +15,9 @@ function deletar() {
 
 function validateelements() {
 
-    if (inputtitle.value == "") {
+    if (inputtitle.value == "" || inputcontent.value == "") {
 
-        window.alert("Insira algum titulo!")
+        window.alert("Insira algum valor!")
 
     } else {
 
@@ -28,12 +28,23 @@ function validateelements() {
 
         }
 
-        // ADICIONANDO ELEMENTOS
+        // CONTAINER NOTAS
         var divnotebox = document.createElement("div")
-        divnotebox.innerText = inputtitle.value
         divnotebox.classList = "note-box"
 
-        return divnotebox
+        // TITLE NOTAS
+        var titlediv = document.createElement("div")
+        titlediv.classList = "title-note"
+        titlediv.innerText = inputtitle.value
+
+        // CONTEUDO DA NOTA
+        var ctd_nota = document.createElement("div")
+        ctd_nota.classList = "ctd-note"
+        ctd_nota.innerText = inputcontent.value
+
+        appendnotes.appendChild(divnotebox)
+        divnotebox.appendChild(titlediv)
+        divnotebox.appendChild(ctd_nota)
 
     }
 
