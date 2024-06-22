@@ -50,3 +50,42 @@ function validateelements() {
 
 }
 
+
+const jsondata = [
+    {
+        "nome": "Guilherme",
+        "idade": 17,
+        "trabalhando": true,
+        "hobbie": ["Programar", "Produção", "Streaming", "Jogar"],
+        "detalhes_profissao": {
+            "profissão": "Organizador de eventos",
+            "salario": 250,
+            "moeda": "Dollar",
+            "Empresa": "Esforce",
+            "Empresa2": "Eletronic Mushroom",
+            "Empresa3": "Axlebolt"
+        }
+    },
+    {
+        "nome": "Ryan",
+        "idade": 27,
+        "trabalhando": false,
+        "hobbie": ["Jogar", "Academia"],
+        "detalhes_profissao": {
+            "profissão": null,
+            "salario": null,
+            "moeda": null,
+            "Empresa": null,
+            "Empresa2": null,
+            "Empresa3": null
+        }
+    }
+]
+
+
+var jsonstring = JSON.stringify(jsondata)
+var jsonobjects = JSON.parse(jsonstring)
+
+console.log(jsondata)
+console.log(jsonstring)
+console.log(jsonobjects)
