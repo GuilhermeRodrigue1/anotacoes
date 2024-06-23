@@ -1,6 +1,7 @@
 const inputtitle = document.getElementById("input-title")
 const inputcontent = document.getElementById("ctd-ant")
 const appendnotes = document.getElementById("container-append-notes")
+const titleh1 = document.getElementById("title-h1-notes")
 
 function adicionar() {
     validateelements()
@@ -8,7 +9,8 @@ function adicionar() {
 
 function deletar() {
     console.log("deletou")
-    appendnotes.innerHTML = "<h1>AINDA NÃO HÁ ANOTAÇÕES...</h1>"
+    appendnotes.innerHTML = ""
+    titleh1.style.display = "block"
 }
 
 function validateelements() {
@@ -16,8 +18,8 @@ function validateelements() {
         window.alert("Insira algum valor!")
     } else {
         // LIMPANDO O CONTAINER
-        if (appendnotes.innerHTML == "<h1>AINDA NÃO HÁ ANOTAÇÕES...</h1>") {
-            appendnotes.innerHTML = ""
+        if (titleh1.style.display = "block") {
+            titleh1.style.display =  "none"
         }
 
         // CONTAINER NOTAS
@@ -38,9 +40,22 @@ function validateelements() {
         divnotebox.appendChild(titlediv)
         divnotebox.appendChild(ctd_nota)
 
+        
+
     }
 
 }
+
+
+var arraytitle = []
+var arrayctd = []
+
+
+
+
+
+
+
 
 
 const jsondata = [
