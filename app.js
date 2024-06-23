@@ -3,9 +3,7 @@ const inputcontent = document.getElementById("ctd-ant")
 const appendnotes = document.getElementById("container-append-notes")
 
 function adicionar() {
-    console.log("adicionou")
-    var appenddiv = validateelements()
-    appendnotes.appendChild(appenddiv)
+    validateelements()
 }
 
 function deletar() {
@@ -14,18 +12,12 @@ function deletar() {
 }
 
 function validateelements() {
-
     if (inputtitle.value == "" || inputcontent.value == "") {
-
         window.alert("Insira algum valor!")
-
     } else {
-
         // LIMPANDO O CONTAINER
-        if (appendnotes.innerText == "AINDA NÃO HÁ ANOTAÇÕES...") {
-
+        if (appendnotes.innerHTML == "<h1>AINDA NÃO HÁ ANOTAÇÕES...</h1>") {
             appendnotes.innerHTML = ""
-
         }
 
         // CONTAINER NOTAS
@@ -82,10 +74,15 @@ const jsondata = [
     }
 ]
 
+var jsonstring = JSON.stringify(jsondata);
+var jsonobjects = JSON.parse(jsonstring);
 
-var jsonstring = JSON.stringify(jsondata)
-var jsonobjects = JSON.parse(jsonstring)
+console.log(jsondata);
+console.log(jsonstring);
+console.log(jsonobjects);
 
-console.log(jsondata)
-console.log(jsonstring)
-console.log(jsonobjects)
+jsonobjects.map(function (pessoa) {
+
+    console.log(pessoa.detalhes_profissao)
+
+})
