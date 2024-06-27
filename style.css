@@ -114,11 +114,12 @@ font-weight: bold;
 
 .ctd-note {
     padding: 5px;
-    text-align: justify;
+    text-align: center;
     margin-top: 5px;
     font-size: 14px;
     color: rgb(196, 196, 196);
     display: flex;
+    width: 100%;
 }
 
 .button-add {
@@ -157,4 +158,12 @@ font-weight: bold;
     display: flex;
     margin-top: 10px;
     margin-bottom: 20px;
+}
+
+#displayt {
+    color: black;
+}
+
+#displayctd  {
+    color: black;
 }
