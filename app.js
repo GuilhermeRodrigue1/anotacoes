@@ -2,8 +2,6 @@ const inputtitle = document.getElementById("input-title")
 const inputcontent = document.getElementById("ctd-ant")
 const appendnotes = document.getElementById("container-append-notes")
 const titleh1 = document.getElementById("title-h1-notes")
-var displaytitle = document.getElementById("displayt")
-var displayctd = document.getElementById("displayctd")
 
 function adicionar() {
     validateelements()
@@ -17,6 +15,8 @@ function deletar() {
     arraytitle = []
     console.log(arrayctd)
     console.log(arraytitle)
+    localStorage.setItem("titles", null)
+    localStorage.setItem("ctd", null)
 }
 
 function validateelements() {
@@ -55,10 +55,16 @@ function addelement(){
     arrayctd.push(inputcontent.value)
 
     console.log("Title: " + arraytitle)
-    console.log("Content: " +arrayctd)
+    console.log("Content: " + arrayctd)
     console.log(arraytitle.length)
     console.log(arrayctd.length)
+    setitem()
 
+}
+
+function setitem() {
+    localStorage.setItem("titles", arraytitle)
+    localStorage.setItem("ctd", arrayctd)
 }
 
 var arraytitle = []
