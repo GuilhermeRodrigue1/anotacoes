@@ -33,10 +33,10 @@ function validateelements() {
 function addelement(){
 
     // INSERINDO VALORES DO INPUT NA ARRAY
-    arrayctd
+    arrayctd.title.push = inputtitle.value
+    arrayctd.ctd.push = inputcontent.value
 
     // EXIBINDO ARRAY NO CONSOLE
-    console.log(arrayctd)
     console.log(arrayctd)
 
     // CONTAINER NOTAS
@@ -63,24 +63,30 @@ function addelement(){
 }
 
 function setitem() {
-    localStorage.setItem("titles", arrayctd)
-    localStorage.setItem("ctd", arrayctd)
+    localStorage.setItem("jsondata", JSON.stringify(arrayctd))
     inputtitle.value = ""
     inputcontent.value = ""
-
 }
 
 addEventListener("DOMContentLoaded", function() {
-
-    console.log(arrayctd)
-
+    
+    // TRANSFORMANDO ARRAY EM STRING JSON
     var arraystring = JSON.stringify(arrayctd)
+    // CRIANDO VARIAVEL PARA PEGAR O ITEM DO STORAGE "JSON STRING"
+    var LocalStorageJSON = localStorage.getItem("jsondata")
+    // TRANSFORMANDO VARIAVEL "JSON STRING" EM UM JSON VALIDO
+    var arrayvalid = JSON.parse(LocalStorageJSON)
 
     console.log(arraystring)
-
+    console.log(arrayvalid)
+    console.log(arrayctd)
 })
 
-var arrayctd = [{"title": ["TITULO1", "TITULO2"],"ctd": ["DDDDDDDD", "SSSSSSS"]}]
+var arrayctd =
+    {
+        "title": [],
+        "ctd": []
+    }
 
 
 // const jsondata = [
