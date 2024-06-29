@@ -4,7 +4,6 @@ var arrayctd =
         "ctd": []
     }
 
-let pos = 0
 
 const inputtitle = document.getElementById("input-title")
 const inputcontent = document.getElementById("ctd-ant")
@@ -24,7 +23,7 @@ function deletar() {
     arrayctd.ctd = []
     console.log(arrayctd)
 }
-
+ 
 function validateelements() {
     if (inputtitle.value == "" || inputcontent.value == "") {
         window.alert("Insira algum valor valido nos campos!")
