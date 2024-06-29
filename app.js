@@ -4,6 +4,7 @@ const appendnotes = document.getElementById("container-append-notes")
 const titleh1 = document.getElementById("title-h1-notes")
 
 function adicionar() {
+    // VALIDANDO VALORES
     validateelements()
 }
 
@@ -11,10 +12,8 @@ function deletar() {
     console.log("deletou")
     appendnotes.innerHTML = ""
     titleh1.style.display = "block"
-    arrayctd = []
-    arraytitle = []
-    console.log(arrayctd)
-    console.log(arraytitle)
+    arrayctd = [{"title": null,"ctd": null}]
+    console.log(arrayctd)  
     localStorage.setItem("titles", null)
     localStorage.setItem("ctd", null)
 }
@@ -33,6 +32,13 @@ function validateelements() {
 
 function addelement(){
 
+    // INSERINDO VALORES DO INPUT NA ARRAY
+    arrayctd
+
+    // EXIBINDO ARRAY NO CONSOLE
+    console.log(arrayctd)
+    console.log(arrayctd)
+
     // CONTAINER NOTAS
     var divnotebox = document.createElement("div")
     divnotebox.classList = "note-box"
@@ -41,34 +47,40 @@ function addelement(){
     var titlediv = document.createElement("div")
     titlediv.classList = "title-note"
     titlediv.innerText = inputtitle.value
-
+    
     // CONTEUDO DA NOTA
     var ctd_nota = document.createElement("div")
     ctd_nota.classList = "ctd-note"
     ctd_nota.innerText = inputcontent.value
 
+    // APPEND ELEMENTS
     appendnotes.appendChild(divnotebox)
     divnotebox.appendChild(titlediv)
     divnotebox.appendChild(ctd_nota)
 
-    arraytitle.push(inputtitle.value)
-    arrayctd.push(inputcontent.value)
-
-    console.log("Title: " + arraytitle)
-    console.log("Content: " + arrayctd)
-    console.log(arraytitle.length)
-    console.log(arrayctd.length)
+    // CHAMANDO FUNÇÃO DO LOCAL STORAGE
     setitem()
-
 }
 
 function setitem() {
-    localStorage.setItem("titles", arraytitle)
+    localStorage.setItem("titles", arrayctd)
     localStorage.setItem("ctd", arrayctd)
+    inputtitle.value = ""
+    inputcontent.value = ""
+
 }
 
-var arraytitle = []
-var arrayctd = []
+addEventListener("DOMContentLoaded", function() {
+
+    console.log(arrayctd)
+
+    var arraystring = JSON.stringify(arrayctd)
+
+    console.log(arraystring)
+
+})
+
+var arrayctd = [{"title": ["TITULO1", "TITULO2"],"ctd": ["DDDDDDDD", "SSSSSSS"]}]
 
 
 // const jsondata = [
@@ -114,3 +126,4 @@ var arrayctd = []
 //     console.log(pessoa.detalhes_profissao)
 
 // })
+
