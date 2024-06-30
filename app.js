@@ -11,7 +11,7 @@ function adicionar() {
     } else {
         arrayctd.title.push(inputtitle.value)
         arrayctd.ctd.push(inputcontent.value)
-        h1display()
+        titleh1.style.display = "none"
         addelement()
     }
 }
@@ -23,14 +23,6 @@ function deletar() {
     arrayctd.title = []
     arrayctd.ctd = []
     localStorage.removeItem("JSON")
-}
-
-function h1display(){
-    if(titleh1.style.display == "flex"){
-        titleh1.style.display = "none"
-    } else {
-        titleh1.style.display = "flex"
-    }
 }
 
 function addelement(){
@@ -121,6 +113,7 @@ function autoaddnotes() {
         divnotebox.appendChild(ctd_nota)
 
         console.log("Posição da repetição: " + num)
+        titleh1.style.display = "none"
 
     }
 
