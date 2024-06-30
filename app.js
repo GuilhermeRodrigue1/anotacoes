@@ -3,38 +3,37 @@ var arrayctd = {"title": [], "ctd": []}
 const inputtitle = document.getElementById("input-title")
 const inputcontent = document.getElementById("ctd-ant")
 const appendnotes = document.getElementById("container-append-notes")
-const titleh1 = document.getElementById("title-h1-notes")
+const titleh1 = this.document.getElementById("title-h1-notes")
 
 function adicionar() {
-    // VALIDANDO VALORES
-    validateelements()
+    if (inputtitle.value == "" || inputcontent.value == "") {
+        window.alert("Insira algum valor valido nos campos!")
+    } else {
+        arrayctd.title.push(inputtitle.value)
+        arrayctd.ctd.push(inputcontent.value)
+        h1display()
+        addelement()
+    }
 }
 
 function deletar() {
     console.log("deletou")
     appendnotes.innerHTML = ""
-    titleh1.style.display = "block"
+    titleh1.style.display = "flex"
     arrayctd.title = []
     arrayctd.ctd = []
-    console.log(arrayctd)
+    localStorage.removeItem("JSON")
 }
- 
-function validateelements() {
-    if (inputtitle.value == "" || inputcontent.value == "") {
-        window.alert("Insira algum valor valido nos campos!")
+
+function h1display(){
+    if(titleh1.style.display == "flex"){
+        titleh1.style.display = "none"
     } else {
-        // DEIXANDO INVISIVEL O AVISO
-        if (titleh1.style.display == "flex") {
-            titleh1.style.display =  "none"
-        }
-        addelement()
+        titleh1.style.display = "flex"
     }
 }
 
 function addelement(){
-    // INSERINDO VALORES DO INPUT NA ARRAY
-    arrayctd.title.push(inputtitle.value)
-    arrayctd.ctd.push(inputcontent.value)
 
     // CONTAINER NOTAS
     const divnotebox = document.createElement("div")
@@ -43,11 +42,12 @@ function addelement(){
     // TITLE NOTAS
     const titlediv = document.createElement("div")
     titlediv.classList = "title-note"
-    titlediv.innerText = inputtitle.value
-    
+
     // CONTEUDO DA NOTA
     const ctd_nota = document.createElement("div")
     ctd_nota.classList = "ctd-note"
+    
+    titlediv.innerText = inputtitle.value
     ctd_nota.innerText = inputcontent.value
 
     // APPEND ELEMENTS
@@ -64,7 +64,6 @@ function setitem() {
     if(inputtitle.value == "" && inputcontent.value == ""){
         console.log("inputs já estão vazios")
     } else {
-        console.log("Limpando inputs")
         inputtitle.value = ""
         inputcontent.value = ""
     }
@@ -89,5 +88,41 @@ addEventListener("DOMContentLoaded", function() {
         let JSONValid = JSON.parse(getlocal)
         // PASSANDO O JSON ARMAZENADO NO LOCAL PARA O OBJECT
         arrayctd = JSONValid
+        autoaddnotes()
     }
 })
+
+function autoaddnotes() {
+
+    let num = 0
+    var lengtharraytitle = arrayctd.title.length
+    var lengtharrayctd = arrayctd.ctd.length
+
+    for(let num = 0;num != lengtharraytitle;num++){
+
+        h1display()
+        // CONTAINER NOTAS
+        const divnotebox = document.createElement("div")
+        divnotebox.classList = "note-box"
+
+        // TITLE NOTAS
+        const titlediv = document.createElement("div")
+        titlediv.classList = "title-note"
+
+        // CONTEUDO DA NOTA
+        const ctd_nota = document.createElement("div")
+        ctd_nota.classList = "ctd-note"
+
+        titlediv.innerText = arrayctd.title[num]
+        ctd_nota.innerText = arrayctd.ctd[num]
+
+        // APPEND ELEMENTS
+        appendnotes.appendChild(divnotebox)
+        divnotebox.appendChild(titlediv)
+        divnotebox.appendChild(ctd_nota)
+
+        console.log("Posição da repetição: " + num)
+
+    }
+
+}
