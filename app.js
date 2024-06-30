@@ -100,7 +100,6 @@ function autoaddnotes() {
 
     for(let num = 0;num != lengtharraytitle;num++){
 
-        h1display()
         // CONTAINER NOTAS
         const divnotebox = document.createElement("div")
         divnotebox.classList = "note-box"

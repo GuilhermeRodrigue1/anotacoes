@@ -117,11 +117,19 @@ font-weight: bold;
 .ctd-note {
     padding: 10px;
     text-align: justify;
-    margin-top: 5px;
+    margin-top: 10px;
     font-size: 16px;
     color: rgb(0, 0, 0);
     display: flex;
-    width: 100%;
+    font-weight: 700;
+}
+
+@media screen and (max-width: 650px) {
+
+    .container-notes {
+        grid-template-columns: 100%;
+    }
+    
 }
 
 .button-add {
