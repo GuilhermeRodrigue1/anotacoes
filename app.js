@@ -1,9 +1,4 @@
-var arrayctd =
-    {
-        "title": [],
-        "ctd": []
-    }
-
+var arrayctd = {"title": [], "ctd": []}
 
 const inputtitle = document.getElementById("input-title")
 const inputcontent = document.getElementById("ctd-ant")
@@ -28,8 +23,8 @@ function validateelements() {
     if (inputtitle.value == "" || inputcontent.value == "") {
         window.alert("Insira algum valor valido nos campos!")
     } else {
-        // LIMPANDO O CONTAINER
-        if (titleh1.style.display == "block") {
+        // DEIXANDO INVISIVEL O AVISO
+        if (titleh1.style.display == "flex") {
             titleh1.style.display =  "none"
         }
         addelement()
@@ -37,7 +32,6 @@ function validateelements() {
 }
 
 function addelement(){
-
     // INSERINDO VALORES DO INPUT NA ARRAY
     arrayctd.title.push(inputtitle.value)
     arrayctd.ctd.push(inputcontent.value)
@@ -61,30 +55,39 @@ function addelement(){
     divnotebox.appendChild(titlediv)
     divnotebox.appendChild(ctd_nota)
 
-    console.log(arrayctd)
-
     // CHAMANDO FUNÇÃO DO LOCAL STORAGE
     setitem()
 }
 
 function setitem() {
-    inputtitle.value = ""
-    inputcontent.value = ""
-    let Arraystring = JSON.stringify(arrayctd)
-    console.log(Arraystring)
-    localStorage.setItem("JSON", Arraystring)
+    // CONDICIONAL DE LIMPEZA DE INPUTS
+    if(inputtitle.value == "" && inputcontent.value == ""){
+        console.log("inputs já estão vazios")
+    } else {
+        console.log("Limpando inputs")
+        inputtitle.value = ""
+        inputcontent.value = ""
+    }
+
+    // TRANFORMANDO O OBJETO EM STRING
+    let JSONString = JSON.stringify(arrayctd)
+    // ADICIONANDO NO STORAGE O OBJETO STRING
+    localStorage.setItem("JSON", JSONString)
+
+    console.log("LocalStorage Atualizado!")
 }
 
 addEventListener("DOMContentLoaded", function() {
-    
-    // TRANSFORMANDO ARRAY EM STRING JSON
-    var arraystring = JSON.stringify(arrayctd)
-    // CRIANDO VARIAVEL PARA PEGAR O ITEM DO STORAGE "JSON STRING"
-    var LocalStorageJSON = localStorage.getItem("jsondata")
-    // TRANSFORMANDO VARIAVEL "JSON STRING" EM UM JSON VALIDO
-    var arrayvalid = JSON.parse(LocalStorageJSON)
-
-    console.log(arraystring)
-    console.log(arrayvalid)
-    console.log(arrayctd)
+    if(localStorage.getItem("JSON") == undefined) {
+        console.log("preparando componente local!")
+        setitem()
+    } else {
+        console.log("Ja existe o componente necessario no local.")
+        // PUXANDO O LOCALSTORAGE
+        let getlocal = localStorage.getItem("JSON")
+        // TRANSFORMANDO O STRING LOCAL EM VALIDO
+        let JSONValid = JSON.parse(getlocal)
+        // PASSANDO O JSON ARMAZENADO NO LOCAL PARA O OBJECT
+        arrayctd = JSONValid
+    }
 })
